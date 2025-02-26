@@ -1,3 +1,6 @@
+//Stores the description and completion status of a task.
+//Includes a method to mark a task as completed.
+
 public class Task {
     protected String description;
     protected boolean completed = false;
