@@ -4,10 +4,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //Inits
-        ArrayList<User> users = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         User testUser = new User("johnnyDoe");
-        users.add(testUser);
 
         //Loop
         boolean mainLoop = true;
@@ -24,17 +22,18 @@ public class Main {
                 case 1: {
                     System.out.println("Enter a unique username");
                     String username = sc.next();
+                    User newUser = new User(username);
+                    break;
                 }
                 //Login and access user menu
                 case 2: {
                     System.out.println("Enter username: ");
                     String username = sc.next();
-                    User newUser = new User(username);
-                    users.add(newUser);
 
                     //User Menu Loop
                     boolean userLoop = true;
                     while (userLoop) {
+
                         System.out.println("User Menu: ");
                         System.out.println("1. Add Task");
                         System.out.println("2. View Existing Tasks");
@@ -45,10 +44,15 @@ public class Main {
                             {
                                 System.out.println("Describe your task: ");
                                 String description = sc.next();
+
+                                break;
+
                             }
                             case 2:
                             {
                                 System.out.println("Current Tasks for" + username + ": ");
+
+                                break;
 
                             }
                             case 3:
