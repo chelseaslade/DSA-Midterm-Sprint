@@ -4,13 +4,21 @@
 public class Task {
     protected String description;
     protected boolean completed = false;
+    protected int id;
+    protected static int serial = 1;
+
 
     public Task(String description) {
         this.description = description;
+        this.id = serial++;
     }
 
     public String getDescription() {
         return this.description;
+    }
+
+    public int getID() {
+        return this.id;
     }
 
     public boolean isCompleted() {
@@ -26,7 +34,7 @@ public class Task {
             taskCompletion = "Incomplete.";
         }
 
-        return this.description + " Task Progress:  " + taskCompletion;
+        return "ID: " + this.id + this.description + " Task Progress:  " + taskCompletion;
     }
 
     public void setCompletion(boolean completed) {

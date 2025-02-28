@@ -4,7 +4,7 @@
 public class User {
     protected int id;
     protected String name;
-    protected static int serial = 1;;
+    protected static int serial = 1;
     protected TaskList userTasks = new TaskList();
 
     //Constructors

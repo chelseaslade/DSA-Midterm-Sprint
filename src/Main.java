@@ -71,9 +71,23 @@ public class Main {
 
                                 }
                                 case 2: {
-                                    System.out.println("Current Tasks for" + username + ": ");
-                                    loggedInUser.printTaskList();
-                                    break;
+                                    //Loop
+//                                    boolean taskLoop = true;
+//                                    while (taskLoop) {
+                                        System.out.println("Current Tasks for" + username + ": ");
+                                        loggedInUser.printTaskList();
+//
+//                                        System.out.println("Would you like to mark a task as marked as completed? (Y/N)");
+//                                        String option = sc.next().toUpperCase();
+//
+//                                        if (option.equals("Y")) {
+//                                            System.out.println("Enter Task ID: ");
+//                                            int selectedID = sc.nextInt();
+//                                        }
+//                                        else if (option.equals("N")) {
+//                                            taskLoop = false;
+//                                        }
+//                                    }
 
                                 }
                                 case 3: {
