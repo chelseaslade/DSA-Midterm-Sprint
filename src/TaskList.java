@@ -1,22 +1,52 @@
 //Represents the to-do list for a user.
 //Includes methods to add a task, mark a task as completed, and print all tasks.
 
-import java.util.ArrayList;
-
 public class TaskList {
-    ArrayList<Task> tasks = new ArrayList<Task>();
+    protected class Node {
+        Task task;
+        Node next;
 
-    //Constructor
-    public TaskList() {
-        tasks = new ArrayList<>();
+        protected Node(Task task) {
+            this.task = task;
+            this.next = null;
         }
+    }
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
+    protected Node head;
+    public TaskList() {
+        head = null;
     }
 
     public void addTask(Task task) {
-        tasks.add(task);
+        Node addedNode = new Node(task);
+        if (head == null) {
+            head = addedNode;
+        }
+        else {
+            Node currentNode = head;
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = addedNode;
+        }
+    }
+
+    public void removeTask(Task task) {}
+
+    public Task getTask(int index) {
+        return null;
+    }
+
+    public void getAllTasks() {
+        Node currentNode = head;
+        while (currentNode != null) {
+            System.out.println(currentNode);
+            currentNode = currentNode.next;
+        }
+    }
+
+    public void markCompleted() {
+
     }
 }
 
