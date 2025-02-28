@@ -2,7 +2,7 @@
 //Includes methods to add a task, mark a task as completed, and print all tasks.
 
 public class TaskList {
-    protected class Node {
+    protected static class Node {
         Task task;
         Node next;
 
@@ -31,10 +31,27 @@ public class TaskList {
         }
     }
 
-    public void removeTask(Task task) {}
+    public void removeTask(Task task) {
+        Node removedNode = head;
+        while (removedNode.next != null) {
+            if (removedNode.task.equals(task)) {
+                removedNode.next = null;
+            }
+            else {
+                removedNode = removedNode.next;
+            }
+        }
+    }
 
     public Task getTask(int index) {
-        return null;
+        Task selectedTask = null;
+        Node currentNode = head;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        selectedTask = currentNode.task;
+        System.out.println(selectedTask);
+        return selectedTask;
     }
 
     public void getAllTasks() {
@@ -45,8 +62,17 @@ public class TaskList {
         }
     }
 
-    public void markCompleted() {
-
+    public void markCompleted(Task task) {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.task.equals(task)) {
+                currentNode.task.setCompletion(true);
+                System.out.println("Task marked as complete!");
+                return;
+            }
+            currentNode = currentNode.next;
+            System.out.println("Could not find selected task.");
+        }
     }
 }
 

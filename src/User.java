@@ -1,19 +1,17 @@
 //Stores the name of the user and their to-do list (a single linked list of tasks).
 //Includes methods to add a task, mark a task as completed, and print all tasks.
 
-import java.util.ArrayList;
-
 public class User {
     protected int id;
     protected String name;
-    protected static int serial = 1;
-    protected ArrayList<Task> tasks;
+    protected static int serial = 1;;
+    protected TaskList userTasks = new TaskList();
 
     //Constructors
     public User(String name) {
         this.id = serial++;
         this.name = name;
-        this.tasks = new ArrayList<>();
+        this.userTasks = new TaskList();
     }
 
     public String getName() {
@@ -32,7 +30,15 @@ public class User {
         this.id = id;
     }
 
-    public ArrayList<Task> getTasks() {
-        return this.tasks;
+    public void addTask(Task task) {
+        this.userTasks.addTask(task);
+    }
+
+    public void markCompleted(Task task) {
+        userTasks.markCompleted(task);
+    }
+
+    public void printTaskList() {
+        System.out.println(userTasks);
     }
 }
