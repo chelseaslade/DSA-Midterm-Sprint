@@ -8,15 +8,25 @@ public class Main {
         ArrayList<User> users = new ArrayList<>();
 
         System.out.println("Testing Classes & Methods: \n");
-        User testUser = new User("johnnyDoe");
-        Task testTask = new Task("Testing my tasks!");
-        users.add(testUser);
-        testUser.addTask(testTask);
+        User testUser1 = new User("johnnyDoe");
+        Task testTask1 = new Task("Testing my tasks!");
+        users.add(testUser1);
+        testUser1.addTask(testTask1);
 
-        testUser.addTask(new Task("DSA Midterm Sprint"));
-        testUser.printTaskList();
-        testUser.markCompleted("DSA Midterm Sprint");
-        testUser.printTaskList();
+        testUser1.addTask(new Task("DSA Midterm Sprint"));
+        testUser1.printTaskList();
+        testUser1.markCompleted("DSA Midterm Sprint");
+        testUser1.printTaskList();
+
+        User testUser2 = new User("janeDoe");
+        Task testTask2 = new Task("Test number two.");
+        users.add(testUser2);
+        testUser2.addTask(testTask2);
+
+        testUser2.addTask(new Task("Final Sprint"));
+        testUser2.printTaskList();
+        testUser2.markCompleted("Final Sprint");
+        testUser2.printTaskList();
 
         //Loop
         boolean mainLoop = true;
