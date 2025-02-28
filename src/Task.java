@@ -34,7 +34,7 @@ public class Task {
             taskCompletion = "Incomplete.";
         }
 
-        return "ID: " + this.id + this.description + " Task Progress:  " + taskCompletion;
+        return "ID " + this.id + ": " +  this.description + " Task Progress:  " + taskCompletion;
     }
 
     public void setCompletion(boolean completed) {
