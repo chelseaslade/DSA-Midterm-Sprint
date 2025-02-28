@@ -57,21 +57,20 @@ public class TaskList {
     public void getAllTasks() {
         Node currentNode = head;
         while (currentNode != null) {
-            System.out.println(currentNode);
+            System.out.println(currentNode.task.toString());
             currentNode = currentNode.next;
         }
     }
 
-    public void markCompleted(Task task) {
+    public void markCompleted(String description) {
         Node currentNode = head;
         while (currentNode != null) {
-            if (currentNode.task.equals(task)) {
+            if (currentNode.task.getDescription().equals(description)) {
                 currentNode.task.setCompletion(true);
                 System.out.println("Task marked as complete!");
                 return;
             }
             currentNode = currentNode.next;
-            System.out.println("Could not find selected task.");
         }
     }
 }

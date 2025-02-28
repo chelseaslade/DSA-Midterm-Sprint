@@ -5,14 +5,25 @@ public class Main {
     public static void main(String[] args) {
         //Inits
         Scanner sc = new Scanner(System.in);
+        ArrayList<User> users = new ArrayList<>();
+
+        System.out.println("Testing Classes & Methods: \n");
         User testUser = new User("johnnyDoe");
+        Task testTask = new Task("Testing my tasks!");
+        users.add(testUser);
+        testUser.addTask(testTask);
+
+        testUser.addTask(new Task("DSA Midterm Sprint"));
+        testUser.printTaskList();
+        testUser.markCompleted("DSA Midterm Sprint");
+        testUser.printTaskList();
 
         //Loop
         boolean mainLoop = true;
 
         //Menu
         while (mainLoop) {
-            System.out.println("To-Do List Manager");
+            System.out.println(" \n To-Do List Manager");
             System.out.println("1. Add User");
             System.out.println("2. Select Existing User");
             System.out.println("3. Exit");
@@ -23,43 +34,56 @@ public class Main {
                     System.out.println("Enter a unique username");
                     String username = sc.next();
                     User newUser = new User(username);
+                    users.add(newUser);
                     break;
                 }
                 //Login and access user menu
                 case 2: {
+                    User loggedInUser = null;
                     System.out.println("Enter username: ");
                     String username = sc.next();
 
-                    //User Menu Loop
-                    boolean userLoop = true;
-                    while (userLoop) {
+                    for (User user : users) {
+                        if (user.getName().equals(username)) {
+                            loggedInUser = user;
+                            break;
+                        }
+                    }
 
-                        System.out.println("User Menu: ");
-                        System.out.println("1. Add Task");
-                        System.out.println("2. View Existing Tasks");
-                        System.out.println("3. Logout");
+                    if (loggedInUser != null) {
+                        //User Menu Loop
+                        boolean userLoop = true;
+                        while (userLoop) {
 
-                        switch (sc.nextInt()) {
-                            case 1:
-                            {
-                                System.out.println("Describe your task: ");
-                                String description = sc.next();
+                            System.out.println("User Menu: ");
+                            System.out.println("1. Add Task");
+                            System.out.println("2. View Existing Tasks");
+                            System.out.println("3. Logout");
 
-                                break;
+                            switch (sc.nextInt()) {
+                                case 1: {
+                                    System.out.println("Describe your task: ");
+                                    String description = sc.next();
 
-                            }
-                            case 2:
-                            {
-                                System.out.println("Current Tasks for" + username + ": ");
+                                    Task task = new Task(description);
+                                    loggedInUser.addTask(task);
+                                    break;
 
-                                break;
+                                }
+                                case 2: {
+                                    System.out.println("Current Tasks for" + username + ": ");
+                                    loggedInUser.printTaskList();
+                                    break;
 
-                            }
-                            case 3:
-                            {
-                                userLoop = false;
+                                }
+                                case 3: {
+                                    userLoop = false;
+                                }
                             }
                         }
+                    }
+                    else {
+                        System.out.println("User not found");
                     }
                 }
                 //Exit Program

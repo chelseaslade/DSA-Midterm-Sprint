@@ -34,11 +34,11 @@ public class User {
         this.userTasks.addTask(task);
     }
 
-    public void markCompleted(Task task) {
-        userTasks.markCompleted(task);
+    public void markCompleted(String description) {
+        userTasks.markCompleted(description);
     }
 
     public void printTaskList() {
-        System.out.println(userTasks);
+        userTasks.getAllTasks();
     }
 }

@@ -22,6 +22,9 @@ public class Task {
         if (this.completed) {
             taskCompletion = "Completed!";
         }
+        else {
+            taskCompletion = "Incomplete.";
+        }
 
         return this.description + " Task Progress:  " + taskCompletion;
     }
